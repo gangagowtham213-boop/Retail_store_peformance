@@ -1,0 +1,20 @@
+Total Sales = SUM(Retail_Store_Sales[Sales])
+
+Total Profit = SUM(Retail_Store_Sales[Profit])
+
+Total Orders = DISTINCTCOUNT(Retail_Store_Sales[OrderID])
+
+Total Quantity = SUM(Retail_Store_Sales[Quantity])
+
+Profit Margin % = DIVIDE([Total Profit], [Total Sales], 0)
+
+Average Order Value = DIVIDE([Total Sales], [Total Orders], 0)
+
+Sales LY =
+CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))
+
+Sales Growth % =
+DIVIDE([Total Sales] - [Sales LY], [Sales LY], 0)
+
+Top Product Sales =
+MAXX(VALUES(Retail_Store_Sales[Product]), [Total Sales])

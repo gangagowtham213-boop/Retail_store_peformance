@@ -1,0 +1,20 @@
+POWER BI BUILD GUIDE
+1. Open Power BI Desktop.
+2. Home > Get Data > Text/CSV > select Retail_Store_Sales.csv.
+3. In Power Query, set OrderDate to Date, numeric columns to Decimal/Whole Number, then Close & Apply.
+4. Create a Date table using:
+   Date = CALENDAR(MIN(Retail_Store_Sales[OrderDate]), MAX(Retail_Store_Sales[OrderDate]))
+5. Mark Date as the Date table and relate Date[Date] to Retail_Store_Sales[OrderDate].
+6. Create the measures in DAX_Measures.txt. For time intelligence, use the Date table.
+7. Add visuals:
+   - Card: Total Sales
+   - Card: Total Profit
+   - Card: Total Orders
+   - Card: Profit Margin %
+   - Line chart: Date[Date] vs Total Sales
+   - Clustered bar: Store vs Total Sales
+   - Donut: Category vs Total Sales
+   - Bar chart: Product vs Total Profit (Top N = 10)
+   - Slicers: Store, Region, Category, Date
+8. Format currency consistently and add a clear title.
+Note: The dataset is synthetic and created for academic demonstration. Replace it with actual business data if required.
